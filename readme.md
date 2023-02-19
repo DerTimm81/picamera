@@ -62,4 +62,81 @@ https://docs.github.com/de/authentication/connecting-to-github-with-ssh/generati
 
 In doing that, I ensured, that when I work remotely on the Raspberry Pi Module via my Visual Studio Code installation on my Mac, I would still be able to push source code changes to GitHub directly. I also learnt, that having a connection between my Mac and GitHub will not be enough, as when working remotely, you will need to generate an SSH key on the Raspberry Pi directly to be able to push source code changed to GitHub directly.
 
-### SubSubSub Title
+## Getting the Source Code onto your Raspberry Pi
+
+With the remote connection established inside Visual Studio Code and being on the device now, I checked out the repository of this project onto the Raspberry Pi via Visual Studio Code. Simply use the SSH-definitions of this repository and check out the code.
+
+## Before working with the camera
+
+The image you just loaded to the Raspberry Pi 4 via the above installation instructions might not be the latest and greatest. That's why you will start the Terminal in Visual Studio Code. That Terminal should indicate to you that you are running on the Raspberry Pi showing somthing like. "timm@raspberrypi.local". If that is the case, we will run the below two commands to update all modules that exist on the Raspberry Pi now:
+
+<pre>
+<code>
+sudo apt-get upgrade
+</code>
+</pre>
+
+... will compare the installed packages to the available ones. 
+
+<pre>
+<code>
+sudo apt-get update
+</code>
+</pre>
+
+... will then install updates - if any - to the Raspberry Pi. Please note that you might need to hit "Y" or "Yes" to confirm that updates are going to be installed on the Raspberry Pi. All of that might take a while. Please be patient.
+
+After that, please enter:
+
+<pre>
+<code>
+sudo reboot
+</code>
+</pre>
+
+... That will re-start the Raspberry Pi with all new modules. Please still ensure, that you have your Raspberry Pi connected to the monitor via HDMI. We will still need that user interface to further configure some stuff. Visual Studio Code will, in the lower left corner, indicate that it is re-connecting to the Raspberry Pi. Please confirm any "Refresh"-message to ensure, you are re-connected to the Raspberry Pi after rebooting.
+
+After the reboot is finished, please run the below command via the Terminal 
+
+<pre>
+<code>
+sudo apt-get install python-picamera python3-picamera
+</code>
+</pre>
+
+... This will install python packages needed to properly access the Raspberry Pi camera module you are about to interface. "python-picamera" ia Python 2 module that might not be supported anymore at the time you run the command. You might get an error message. If that is the case, simplify the above command to:
+
+<pre>
+<code>
+sudo apt-get install python3-picamera
+</code>
+</pre>
+
+... That will install the Raspberry Pi Camera Support for Python 3 only. That will be enough, as we will use Python 3 anyways going forward. Please carefully read the console output. You might see a mesage like: "already installed". If that is the case, everything is fine, as the above general update-command for all packages might have installed that package already.
+
+### Setting up the Keyboard
+
+Have you tried to type "y" on the keyboard connected to the Raspberry Pi, but "z" was typed? If that is the case, please go to "Settings" on the Raspberry Pi via the graphical user interface on the HDMI-connected screen and hange the "Mouse and Keybard Setttings" under "Keyboard" to the layout and variant you are using. In my case, this is "German", but it might differ for you. If you are based out of an English country (US, GB, ...), and you type "y" and it really types "y" on the screen, everything is fine and you don't need to adjust anything.
+
+### Enabling the Camera I/O
+
+As a default, the camera interface on the Raspberry Pi is deactivated. Before we can truly interface the images, you need to run the Terminal on the Raspberry Pi. I anticipate, that you have the Raspberry Pi still connected to a keyboard and an HDMI-based monitor, so that you are able to run the Terminal easily on the Raspberry Pi. Please do so, if that is not the case.
+
+Now run:
+
+<pre>
+<code>
+sudo raspi-config
+</code>
+</pre>
+
+What is going to show up id a fairly outdated graphical user interface from the 90ies with an entry called "Interfaces", from which you select "I1" to enable "Cameara Support". That step is crucial for the below steps, as otherwise, the scripts will fail to run.
+
+
+# Checking the Connection to the PiCamera Module
+
+Once you checked out the project (THIS ONE!) from GitHub, you should now see a folder called "BasicInterfaceCheck". Inside that folder, you should have a file called "check01.py". That file will only work nicely if you still have the Raspberry Pi connected via HDMI to a monitor and the image from the previous step is fully loaded.
+
+If that is indeed the case, you can open "Thonny" from the Raspberry Pi installation using the user interace. Inside "Thonny" you should now be able to open the "check01.py" file and hit the "Play" button. What should happen is once you run the script, the camera image should show in full screen fro 10 seconds until it terminates. Please ensure, this is the case.
+
+If you encounter an error, you might need to install the picamera package to python so you are able to access the camera.
