@@ -22,7 +22,7 @@ We will use the basic Raspberry Pi 4 standard installation (please find details 
 * Python vx.y.z
 * Python Libraries:
     * Library A
- ** Library B
+    * Library B
 
 # Getting Started
 ## Setting Up the Raspberry Pi 4
