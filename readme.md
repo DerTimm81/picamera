@@ -25,10 +25,41 @@ We will use the basic Raspberry Pi 4 standard installation (please find details 
     * Library B
 
 # Getting Started
-## Setting Up the Raspberry Pi 4
+## Setting Up the Raspberry Pi 4 on a Mac
 
-<pre><code>a simple
-  indented code block
-</code></pre>
+First of all, we need to give our Raspberry Pi 4 a basic image. We do that by downloading the IMAGER from the raspberry pi website:
+https://www.raspberrypi.com/software/
+
+We use the RASPBERRY PI OS (32-Bit) image and load that on the micro SD card. Writing the image to the SD card might take a while. After that is done, we eject the micro SD from the Mac and put in our Raspberry Pi module. Once done, we plug in the USB-C power cable to the Raspberry Pi 4. We also connect the HDMI cable to a monitor, so we can monitor the boot sequence on the screen.
+
+We follow the boot sequence and create a user (username: timm, password: timm) and connect it to the local wifi network.
+
+## Preparing the Visual Studio Code on the Mac that we will use to code
+
+On our Mac machine, we load and start Visual Studio Code. Once started, we will install the "SSH" plugin by looking for the extention inside Visual Studio Code which says "SSH" and comes from Microsoft.
+
+Once installed, we hit COMMAND + SHIFT + P to establish a connection to the Raspberry Pi. The Raspberry Pi should show up as "rasberrypi.local" in the popup-menu. If that fails, we might need to delete previous configurations on our Mac by starting the Terminal and typing:
+
+<pre>
+<code>
+ssh-keygen -R 192.168.XXX.YYY
+</code>
+</pre>
+
+Of course, you might need to replace the XXX and YYY with the IP address of your Raspberry Pi. You might be asked by your Mac to confirm the removal of previous configurations by entering your Mac password as this is a quite deep-level change.
+
+### Making It Easier to Connect to the Raspberry Pi via SSH in your network
+
+I got quite annoyed re-entering my credentials to my remote connection over and over again. That's why I followed the instructions in this Youtube tutorial to have an easy SSH connection to my raspberry Pi:
+
+https://www.youtube.com/watch?v=w6OsICbnJbA
+
+### Connecting the Raspberry Pi to Github for easier source code version control
+
+One of my learnings from the past was, that I do not want code to exist only locally. That's why I wanted this code to be controlled via GitHub. That caused the need to generate an SSH Key for the Raspberry Pi that would be known by GitHub. I followed the instructions of the linked page to generate an SSH Key on the Raspberry Pi and familiarize that to GitHub.
+
+https://docs.github.com/de/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+In doing that, I ensured, that when I work remotely on the Raspberry Pi Module via my Visual Studio Code installation on my Mac, I would still be able to push source code changes to GitHub directly. I also learnt, that having a connection between my Mac and GitHub will not be enough, as when working remotely, you will need to generate an SSH key on the Raspberry Pi directly to be able to push source code changed to GitHub directly.
 
 ### SubSubSub Title
