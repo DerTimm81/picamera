@@ -19,7 +19,7 @@ Here comes the hardware used in this project:
 We will use the basic Raspberry Pi 4 standard installation (please find details below). During the installation, we will make use of various Python Libraries that help us to achieve our goals. Please find the comprehensive list below. The version of Python 3 being used and library versions may vary depending on the date of your implementation. Please let me know if you encounter issues, so we can resolve it together.
 
 ### Software List
-* Python vx.y.z
+* Python v3.9.2
 * Python Libraries:
     * Library A
     * Library B
@@ -139,4 +139,4 @@ Once you checked out the project (THIS ONE!) from GitHub, you should now see a f
 
 If that is indeed the case, you can open "Thonny" from the Raspberry Pi installation using the user interace. Inside "Thonny" you should now be able to open the "check01.py" file and hit the "Play" button. What should happen is once you run the script, the camera image should show in full screen fro 10 seconds until it terminates. Please ensure, this is the case.
 
-If you encounter an error, you might need to install the picamera package to python so you are able to access the camera.
+If you encounter an error, you might need to install the picamera package to python so you are able to access the camera. Please check the chapter "Before working with the camera" to resolve before proceeding.

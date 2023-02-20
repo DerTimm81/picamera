@@ -1,5 +1,5 @@
 # This script is simply checking the connection to the Pi Camera of the Raspberry Pi module.
-
+# Please be aware that this scrip will require you to run in "attached"-mode, meaning that you have the Raspberry Pi module connected via HDMI to a monitor.
 
 # loading the library for the Raspberry Pi Camera
 from picamera import PiCamera
