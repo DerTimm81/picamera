@@ -3,8 +3,8 @@ from time import sleep
 
 camera = PiCamera()
 
-camera.start_preview()
+# camera.start_preview()
 camera.start_recording('/home/timm/PythonProjects/picamera/BasicInterfaceCheck/outputs/check04.h264')
 sleep(10)
 camera.stop_recording()
-camera.stop_preview()
+# camera.stop_preview()
